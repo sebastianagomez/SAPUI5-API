@@ -1,0 +1,58 @@
+<mvc:View controllerName="EjercicioApi20.EjercicioApi20.controller.Main2" displayBlock="true" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m"
+xmlns:f="sap.ui.layout.form">
+
+<Page id="page" title="{i18n>Order Details}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+        <f:SimpleForm title="Detalle Producto:">
+            <f:content>
+
+                <Label text="Order ID"/>
+                <Text text="{productoSelectJSON>/OrderID}" />
+
+                <Label text="Customer ID"/>
+                <Text text="{productoSelectJSON>/CustomerID}" />
+
+                <Label text="Employee ID"/>
+                <Text text="{productoSelectJSON>/EmployeeID}" />
+
+                <Label text="Order Date"/>
+                <Text text="{productoSelectJSON>/OrderDate}" />
+
+                <Label text="Required Date"/>
+                <Text text="{productoSelectJSON>/RequiredDate}" />
+
+                <Label text="Shipped Date"/>
+                <Text text="{productoSelectJSON>/ShippedDate}" />
+
+                <Label text="Ship Via"/>
+                <Text text="{productoSelectJSON>/ShipVia}" />
+                
+                <Label text="Freight"/>
+                <Text text="{productoSelectJSON>/Freight}" />
+                
+                <Label text="Ship Name"/>
+                <Text text="{productoSelectJSON>/ShipName}" />
+                
+                <Label text="Ship Address"/>
+                <Text text="{productoSelectJSON>/ShipAddress}" />
+                
+                <Label text="Ship City"/>
+                <Text text="{productoSelectJSON>/ShipCity}" />
+                
+                <Label text="Ship Region"/>
+                <Text text="{productoSelectJSON>/ShipRegion}" />
+                
+                <Label text="Ship Posta Code"/>
+                <Text text="{productoSelectJSON>/ShipPostalCode}" />
+                
+                <Label text="Ship Country"/>
+                <Text text="{productoSelectJSON>/ShipCountry}" />
+
+            </f:content>
+        </f:SimpleForm>
+    </content>
+</Page>
+
+</mvc:View>

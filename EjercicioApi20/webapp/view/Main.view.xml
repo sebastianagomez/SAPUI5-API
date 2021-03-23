@@ -1,0 +1,55 @@
+<mvc:View controllerName="EjercicioApi20.EjercicioApi20.controller.Main" displayBlock="true" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m">
+
+<Page id="page" title="{i18n>Order Details}">
+    <content>
+    <VBox>
+        <Table  items="{productoJSON>/value}">
+            <columns>
+                
+                <Column>
+                    <Text text="{i18n>Order ID}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Product ID}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Unit Price}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Quantity}"/>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Discount}"/>
+                </Column>
+
+            </columns>
+            <items >
+
+                <ColumnListItem press="pressItem" type="Active">
+                    <cells>
+                        <Text text="{productoJSON>OrderID}"/>
+                    </cells>
+                    <cells>
+                        <Text text="{productoJSON>ProductID}"/>
+                    </cells>
+                    <cells>
+                        <Text text="{productoJSON>UnitPrice}"/>
+                    </cells>
+                    <cells>
+                        <Text text="{productoJSON>Quantity}"/>
+                    </cells>
+                    <cells>
+                        <Text text="{productoJSON>Discount}"/>
+                    </cells>
+                </ColumnListItem>
+            
+            </items>
+
+        </Table>
+    </VBox> 
+    </content>
+</Page>
+
+</mvc:View>

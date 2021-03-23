@@ -1,0 +1,56 @@
+_schema-version: "3.2"
+ID: EjercicioApi20
+version: 0.0.1
+modules:
+- name: ejercicioapi20-approuter
+  type: approuter.nodejs
+  path: ejercicioapi20-approuter
+  requires:
+  - name: EjercicioApi20_html_repo_runtime
+  - name: dest_EjercicioApi20
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: EjercicioApi20_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: EjercicioApi20_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - EjercicioApi20-content.zip
+      name: EjercicioApi20
+      target-path: resources/
+- name: EjercicioApi20
+  type: html5
+  path: EjercicioApi20
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: EjercicioApi20_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: EjercicioApi20_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: dest_EjercicioApi20
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install
